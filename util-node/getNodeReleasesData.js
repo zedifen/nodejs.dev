@@ -1,52 +1,104 @@
-const fetch = require('node-fetch');
+const nodeVersions = require('@pkgjs/nv');
+const path = require('path');
+const async = require('async');
+const fs = require('fs');
 const getReleaseStatus = require('./getReleaseStatus');
+const { nodeReleaseSchedule } = require('../apiUrls');
+const { apiPath } = require('../pathPrefixes');
 
-async function getNodeReleasesData() {
-  try {
-    const releasesDataDetailURL = 'https://nodejs.org/dist/index.json';
-    const releasesDataURL =
-      'https://raw.githubusercontent.com/nodejs/Release/main/schedule.json';
+const apiDocsDirectory = path.resolve(__dirname, `../content${apiPath}`);
 
-    const releasesDataDetailResponse = await fetch(releasesDataDetailURL);
-    const releasesDataDetailResult = await releasesDataDetailResponse.json();
+const availableApiVersions = fs
+  .readdirSync(apiDocsDirectory, { withFileTypes: true })
+  .filter(dirent => dirent.isDirectory())
+  .map(dirent => dirent.name);
 
-    const releasesDataResponse = await fetch(releasesDataURL);
-    const releasesDataResult = await releasesDataResponse.json();
+function getNodeReleasesData(nodeReleasesDataCallback) {
+  const fetchNodeReleaseSchedule = callback => {
+    fetch(nodeReleaseSchedule)
+      .then(response => response.json())
+      .then(releaseSchedule => callback(null, releaseSchedule));
+  };
 
-    const mappedReleasesDataDetail = releasesDataDetailResult
-      .map(release => ({
-        ...release,
-        lts: release.lts || '',
-      }))
-      .slice(0, 50);
+  const fetchNodeReleaseDetail = callback => {
+    nodeVersions(['supported']).then(response => callback(null, response));
+  };
 
-    const filteredReleasesData = Object.keys(releasesDataResult)
-      .filter(key => {
-        const release = releasesDataResult[key];
-        const end = new Date(release.end);
-        return end >= new Date();
-      })
-      .map(key => {
-        const release = releasesDataResult[key];
+  const formateReleaseDate = date =>
+    date ? new Date(date).toISOString().split('T')[0] : '';
 
-        return {
-          endOfLife: release.end,
-          maintenanceLTSStart: release.maintenance || '',
-          activeLTSStart: release.lts || '',
-          codename: release.codename || '',
-          initialRelease: release.start,
-          release: key,
-          status: getReleaseStatus(release),
-        };
-      });
+  const parseReleaseData = (_, results) => {
+    const { releaseSchedule, releaseDetails } = results;
 
-    return {
-      nodeReleasesDataDetail: mappedReleasesDataDetail,
-      nodeReleasesData: filteredReleasesData,
+    const isReleaseCurrentlyLTS = release =>
+      (new Date(release.lts) <= new Date() &&
+        new Date(release.maintenance) >= new Date()) ||
+      (getReleaseStatus(release) === 'Maintenance LTS' &&
+        formateReleaseDate(release.end) >=
+          new Date().toISOString().split('T')[0]);
+
+    const mapReleaseData = key => {
+      const release = releaseSchedule[key];
+
+      return {
+        fullVersion: key,
+        version: key,
+        codename: release.codename || key,
+        isLts: release.lts
+          ? isReleaseCurrentlyLTS(release)
+          : getReleaseStatus(release) === 'Maintenance LTS' &&
+            formateReleaseDate(release.end) >=
+              new Date().toISOString().split('T')[0],
+        status: getReleaseStatus(release),
+        initialRelease: formateReleaseDate(release.start),
+        ltsStart: formateReleaseDate(release.lts),
+        maintenanceStart: formateReleaseDate(release.maintenance),
+        endOfLife: formateReleaseDate(release.end),
+      };
     };
-  } catch (err) {
-    return Promise.reject(err);
-  }
+
+    const mappedReleasesData = releaseDetails.map(release => ({
+      fullVersion: `v${release.version}`,
+      version: release.versionName,
+      codename: release.codename,
+      isLts: isReleaseCurrentlyLTS(release),
+      status: getReleaseStatus(release),
+      initialRelease: formateReleaseDate(release.start),
+      ltsStart: formateReleaseDate(release.lts),
+      maintenanceStart: formateReleaseDate(release.maintenance),
+      endOfLife: formateReleaseDate(release.end),
+    }));
+
+    const removeDuplicatedScheduleEntries = version =>
+      mappedReleasesData.every(entry => entry.version !== version);
+
+    const filteredReleasesData = Object.keys(releaseSchedule)
+      .filter(removeDuplicatedScheduleEntries)
+      .map(mapReleaseData);
+
+    mappedReleasesData.push(...filteredReleasesData);
+
+    const sortedReleasesByRelease = mappedReleasesData.sort(
+      (a, b) => new Date(a.initialRelease) - new Date(b.initialRelease)
+    );
+
+    sortedReleasesByRelease.reverse();
+
+    nodeReleasesDataCallback({
+      nodeReleasesData: sortedReleasesByRelease,
+      apiAvailableVersions: availableApiVersions,
+    });
+  };
+
+  const asyncTasks = {
+    releaseSchedule: fetchNodeReleaseSchedule,
+    releaseDetails: fetchNodeReleaseDetail,
+  };
+
+  // This creates a parallel worker pool with 2 workers that asynchronously fetches the different
+  // API requests. And then it works towards parsing the data on `parseReleaseData`
+  // When the data gets parsed, it gets returned as a callback to the `getNodeReleasesData` function
+  async.parallel(asyncTasks, parseReleaseData, 2);
 }
 
 module.exports = getNodeReleasesData;

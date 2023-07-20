@@ -1,9 +1,29 @@
+const path = require('path');
+
 require('dotenv').config();
 
 const config = require('./src/config.json');
-const { localesAsString, defaultLanguage } = require('./util-node/locales');
+const { localesAsString, defaultLanguage } = require('./locales');
 
-module.exports = {
+const markdownSources = [
+  'about',
+  'api',
+  'get-involved',
+  'download',
+  'homepage',
+  'learn',
+  'blog',
+];
+
+const gatsbyFsMarkdownSources = markdownSources.map(name => ({
+  resolve: 'gatsby-source-filesystem',
+  options: {
+    name,
+    path: path.resolve(__dirname, `./content/${name}`),
+  },
+}));
+
+const gatsbyConfig = {
   pathPrefix: process.env.PATH_PREFIX,
   siteMetadata: {
     title: config.title,
@@ -18,85 +38,51 @@ module.exports = {
     'Mdx.frontmatter.category': `CategoriesYaml.name`,
   },
   plugins: [
+    'gatsby-plugin-remove-serviceworker',
+    'gatsby-plugin-typescript',
     'gatsby-plugin-catch-links',
     '@skagami/gatsby-plugin-dark-mode',
     'gatsby-transformer-yaml',
-    `gatsby-remark-images`,
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-sharp',
+    // This generates the redirects for the I18N redirects
+    // It also creates meta redirects for any usage of `createRedirect`
+    // 'gatsby-plugin-meta-redirect', replaced by local plugin because it breaks on windows
+    {
+      resolve: 'redirect',
+    },
+    ...gatsbyFsMarkdownSources,
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-sass',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-sass',
       options: {
-        name: 'learn',
-        path: `${__dirname}/content/learn`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'sites',
-        path: `${__dirname}/src/pages/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'homepage',
-        path: `${__dirname}/content/homepage`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'community',
-        path: `${__dirname}/content/community`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blog',
-        path: `${__dirname}/content/blog`,
+        cssLoaderOptions: {
+          modules: {
+            namedExport: false,
+            exportLocalsConvention: 'camelCaseOnly',
+          },
+        },
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'data',
-        path: `${__dirname}/src/data`,
+        path: path.resolve(__dirname, './src/data'),
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'about',
-        path: `${__dirname}/content/about`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'download',
-        path: `${__dirname}/content/download`,
-      },
-    },
-    'gatsby-plugin-typescript',
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.mdx', '.md'],
-        defaultLayouts: {
-          sites: require.resolve(`./src/components/Layout/centered.tsx`),
-          default: require.resolve(`./src/components/Layout/index.tsx`),
-        },
+        // Disables Babel Loader for MDX which fastens the build time
+        lessBabel: true,
         gatsbyRemarkPlugins: [
-          'gatsby-remark-copy-linked-files',
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
@@ -129,17 +115,43 @@ module.exports = {
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
-        fields: [`title`, `body`, `description`, `slug`],
+        fields: [
+          'slug',
+          'title',
+          'displayTitle',
+          'description',
+          'category',
+          'locale',
+          'tableOfContents',
+        ],
         resolvers: {
           Mdx: {
             id: node => node.id,
             title: node => node.frontmatter.title,
-            body: node => node.rawBody,
+            displayTitle: node => node.frontmatter.displayTitle,
             description: node => node.frontmatter.description,
             slug: node => node.fields.slug,
+            category: node => node.fields.categoryName,
+            locale: node => node.fields.locale,
+            tableOfContents: node => {
+              if (node.frontmatter.category === 'api') {
+                // We only do the Table of Contents resolution for API pages as for Learn pages searching by the title and description should be enough
+                // We should probably do a better way of calculating the Table of Contents for API pages as maybe creating a field in the frontmatter
+                return [...node.internal.content.matchAll(/^#{2,5} .*/gm)]
+                  .map(match => match[0].replace(/^#{2,5} /, ''))
+                  .join('\n');
+              }
+
+              return '';
+            },
           },
         },
-        filter: node => node.frontmatter.category === 'learn',
+        filter: node =>
+          node.frontmatter.category === 'learn' ||
+          (node.frontmatter.category === 'api' &&
+            // This is a hack so that we don't index every version of the docs on our search engine whose would be overwhelming
+            // TODO: Find a better way to index statically what is the latest version. We could do similarly as we do on `locales.js`
+            node.frontmatter.version === 'v19'),
       },
     },
     {
@@ -149,9 +161,37 @@ module.exports = {
       resolve: `gatsby-theme-i18n`,
       options: {
         defaultLang: defaultLanguage,
-        configPath: `${__dirname}/src/i18n/config.json`,
+        configPath: path.resolve(__dirname, './src/i18n/config.json'),
         prefixDefault: true,
         locales: localesAsString,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Open Sans',
+              variants: [
+                '300',
+                '300i',
+                '400',
+                '400i',
+                '600',
+                '600i',
+                '900',
+                '900i',
+              ],
+              fontDisplay: 'swap',
+              strategy: 'selfHosted',
+            },
+          ],
+        },
+        formats: ['woff2'],
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
       },
     },
     {
@@ -167,15 +207,7 @@ module.exports = {
         cache_busting_mode: 'none',
       },
     },
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-meta-redirect',
-    {
-      // This is a temporary solution until (https://github.com/gatsbyjs/gatsby/pull/31542) gets merged
-      // So we are able to use the official service worker again. This service worker supports latest Workbox
-      resolve: 'gatsby-plugin-offline-next',
-      options: {
-        globPatterns: ['**/icon-path*'],
-      },
-    },
   ],
 };
+
+module.exports = gatsbyConfig;

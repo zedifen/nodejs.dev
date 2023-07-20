@@ -27,6 +27,15 @@
     "enabled": false
   },
   {
+    "code": "he",
+    "localName": "עברית",
+    "name": "Hebrew",
+    "langDir": "rtl",
+    "dateFormat": "DD.MM.YYYY",
+    "hrefLang": "he-IL",
+    "enabled": false
+  },
+  {
     "code": "en",
     "localName": "English",
     "name": "English",
@@ -42,7 +51,7 @@
     "langDir": "ltr",
     "dateFormat": "DD.MM.YYYY",
     "hrefLang": "es-ES",
-    "enabled": true
+    "enabled": false
   },
   {
     "code": "fa",
@@ -60,7 +69,7 @@
     "langDir": "ltr",
     "dateFormat": "DD.MM.YYYY",
     "hrefLang": "fr",
-    "enabled": false
+    "enabled": true
   },
   {
     "code": "it",
@@ -104,8 +113,17 @@
     "name": "Brazilian Portuguese",
     "langDir": "ltr",
     "dateFormat": "DD.MM.YYYY",
-    "hrefLang": "",
+    "hrefLang": "pt-br",
     "enabled": false
+  },
+  {
+    "code": "pt",
+    "localName": "Português",
+    "name": "Portuguese",
+    "langDir": "ltr",
+    "dateFormat": "DD.MM.YYYY",
+    "hrefLang": "pt",
+    "enabled": true
   },
   {
     "code": "ro",
@@ -150,7 +168,7 @@
     "langDir": "ltr",
     "dateFormat": "YYYY/MM/DD",
     "hrefLang": "zh-Hans",
-    "enabled": false
+    "enabled": true
   },
   {
     "code": "zh-tw",

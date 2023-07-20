@@ -1,6 +1,9 @@
 - name: announcements
-  slug: Announcements
-- name: vulnerabilities
-  slug: Vulnerabilities
-- name: releases
-  slug: Releases & Updates
+  slug: blog.categories.announcements
+  description: blog.categories.announcements.description
+- name: release
+  slug: blog.categories.release
+  description: blog.categories.release.description
+- name: vulnerability
+  slug: blog.categories.vulnerability
+  description: blog.categories.vulnerability.description

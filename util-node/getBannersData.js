@@ -1,17 +1,11 @@
-const fetch = require('node-fetch');
+const { nodeBannersData } = require('../apiUrls');
 
-async function getBannersData() {
-  try {
-    const siteResponse = await fetch(
-      'https://raw.githubusercontent.com/nodejs/nodejs.org/main/locale/en/site.json'
-    );
-    const siteData = await siteResponse.json();
-    const { banners: bannersData } = siteData;
-
-    return bannersData;
-  } catch (err) {
-    return Promise.reject(err);
-  }
+function getBannersData() {
+  // This function gets the current Nodejs.org website metadata
+  // And retrieves the `banners` data to display on the website
+  return fetch(nodeBannersData)
+    .then(response => response.json())
+    .then(({ websiteBanners }) => websiteBanners);
 }
 
 module.exports = getBannersData;

@@ -6,58 +6,839 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/*",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "static/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(css|js)",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "sw.js",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "page-data/**",
+        "headers": [
+          {
+            "key": "cache-control",
+            "value": "public, max-age=0, must-revalidate"
+          }
+        ]
+      }
     ]
   },
-  "headers": [
-    {
-      "source": "**/sw.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
-  ],
   "redirects": [
     {
-      "source": "/en/get-involved/",
-      "destination": "/community/",
-      "type": "301"
-    },
-    {
-      "source": "/get-involved/",
-      "destination": "/community/",
-      "type": "301"
-    },
-    {
       "source": "/governance/",
-      "destination": "/about/governance/",
+      "destination": "/en/about/governance/",
       "type": "301"
     },
     {
       "source": "/working-groups/",
-      "destination": "/about/working-groups/",
+      "destination": "https://github.com/nodejs/TSC/blob/main/WORKING_GROUPS.md",
       "type": "301"
     },
     {
       "source": "/releases/",
-      "destination": "/about/releases/",
-      "type": "301"
-    },
-    {
-      "source": "/trademark/",
-      "destination": "/about/trademark/",
-      "type": "301"
-    },
-    {
-      "source": "/privacy/",
-      "destination": "/about/privacy/",
+      "destination": "/en/about/releases/",
       "type": "301"
     },
     {
       "source": "/security/",
-      "destination": "/about/security/",
+      "destination": "/en/about/security/",
+      "type": "301"
+    },
+    {
+      "source": "/trademark/",
+      "destination": "https://trademark-policy.openjsf.org/",
+      "type": "301"
+    },
+    {
+      "source": "/about/trademark/",
+      "destination": "https://trademark-policy.openjsf.org/",
+      "type": "301"
+    },
+    {
+      "source": "/storybook/*",
+      "destination": "/en/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/advisory-board/2014/12/05/listening-to-the-community",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/community/2015/05/15/foundation-benefits-all/",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/community/2016/09/06/v5-to-v7",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/npm/2011/03/24/npm-1-0-global-vs-local-installation",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/vulnerabilities/2017/01/27/openssl-january-2017",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/vulnerabilities/2017/09/29/september-2017-path-validation",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2015/04/24/weekly-update.2015-04-24",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2015/05/29/weekly-update.2015-05-29",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2015/07/31/weekly-update.2015-07-31",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2016/02/15/weekly-update.2016-02-15",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2016/03/07/weekly-update.2016-03-07",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/announcements/2021/10/07/retiring-the-node-js-community-committee",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/announcements/2022/02/14/nodejs-trademarks-transferred-to-openjs-foundation",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/announcements/2022/04/19/v18-release-announce",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/announcements/2022/06/08/nodejs16-eol",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/community/2016/12/03/update-v8-5.4",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/vulnerabilities/2018/06/12/june-2018-security-releases",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2015/07/17/weekly-update.2015-07-17",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2016/04/29/weekly-update.2016-04-29",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2016/07/22/weekly-update.2016-07-22",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/blog/weekly-updates/2016/08/15/weekly-update.2016-08-15",
+      "destination": "/en/blog/",
+      "type": "301"
+    },
+    {
+      "source": "/api/",
+      "destination": "/en/api/v20/documentation/",
+      "type": "301"
+    },
+    {
+      "source": "/api/v20/",
+      "destination": "/en/api/v20/documentation/",
+      "type": "301"
+    },
+    {
+      "source": "/api/latest/",
+      "destination": "/en/api/v20/documentation/",
+      "type": "301"
+    },
+    {
+      "source": "/api/addons/",
+      "destination": "/en/api/v20/addons/",
+      "type": "301"
+    },
+    {
+      "source": "/api/addons.html",
+      "destination": "/en/api/v20/addons/",
+      "type": "301"
+    },
+    {
+      "source": "/api/assert/",
+      "destination": "/en/api/v20/assert/",
+      "type": "301"
+    },
+    {
+      "source": "/api/assert.html",
+      "destination": "/en/api/v20/assert/",
+      "type": "301"
+    },
+    {
+      "source": "/api/async_context/",
+      "destination": "/en/api/v20/async_context/",
+      "type": "301"
+    },
+    {
+      "source": "/api/async_context.html",
+      "destination": "/en/api/v20/async_context/",
+      "type": "301"
+    },
+    {
+      "source": "/api/async_hooks/",
+      "destination": "/en/api/v20/async_hooks/",
+      "type": "301"
+    },
+    {
+      "source": "/api/async_hooks.html",
+      "destination": "/en/api/v20/async_hooks/",
+      "type": "301"
+    },
+    {
+      "source": "/api/buffer/",
+      "destination": "/en/api/v20/buffer/",
+      "type": "301"
+    },
+    {
+      "source": "/api/buffer.html",
+      "destination": "/en/api/v20/buffer/",
+      "type": "301"
+    },
+    {
+      "source": "/api/child_process/",
+      "destination": "/en/api/v20/child_process/",
+      "type": "301"
+    },
+    {
+      "source": "/api/child_process.html",
+      "destination": "/en/api/v20/child_process/",
+      "type": "301"
+    },
+    {
+      "source": "/api/cli/",
+      "destination": "/en/api/v20/cli/",
+      "type": "301"
+    },
+    {
+      "source": "/api/cli.html",
+      "destination": "/en/api/v20/cli/",
+      "type": "301"
+    },
+    {
+      "source": "/api/cluster/",
+      "destination": "/en/api/v20/cluster/",
+      "type": "301"
+    },
+    {
+      "source": "/api/cluster.html",
+      "destination": "/en/api/v20/cluster/",
+      "type": "301"
+    },
+    {
+      "source": "/api/console/",
+      "destination": "/en/api/v20/console/",
+      "type": "301"
+    },
+    {
+      "source": "/api/console.html",
+      "destination": "/en/api/v20/console/",
+      "type": "301"
+    },
+    {
+      "source": "/api/corepack/",
+      "destination": "/en/api/v20/corepack/",
+      "type": "301"
+    },
+    {
+      "source": "/api/corepack.html",
+      "destination": "/en/api/v20/corepack/",
+      "type": "301"
+    },
+    {
+      "source": "/api/crypto/",
+      "destination": "/en/api/v20/crypto/",
+      "type": "301"
+    },
+    {
+      "source": "/api/crypto.html",
+      "destination": "/en/api/v20/crypto/",
+      "type": "301"
+    },
+    {
+      "source": "/api/debugger/",
+      "destination": "/en/api/v20/debugger/",
+      "type": "301"
+    },
+    {
+      "source": "/api/debugger.html",
+      "destination": "/en/api/v20/debugger/",
+      "type": "301"
+    },
+    {
+      "source": "/api/deprecations/",
+      "destination": "/en/api/v20/deprecations/",
+      "type": "301"
+    },
+    {
+      "source": "/api/deprecations.html",
+      "destination": "/en/api/v20/deprecations/",
+      "type": "301"
+    },
+    {
+      "source": "/api/dgram/",
+      "destination": "/en/api/v20/dgram/",
+      "type": "301"
+    },
+    {
+      "source": "/api/dgram.html",
+      "destination": "/en/api/v20/dgram/",
+      "type": "301"
+    },
+    {
+      "source": "/api/diagnostics_channel/",
+      "destination": "/en/api/v20/diagnostics_channel/",
+      "type": "301"
+    },
+    {
+      "source": "/api/diagnostics_channel.html",
+      "destination": "/en/api/v20/diagnostics_channel/",
+      "type": "301"
+    },
+    {
+      "source": "/api/dns/",
+      "destination": "/en/api/v20/dns/",
+      "type": "301"
+    },
+    {
+      "source": "/api/dns.html",
+      "destination": "/en/api/v20/dns/",
+      "type": "301"
+    },
+    {
+      "source": "/api/documentation/",
+      "destination": "/en/api/v20/documentation/",
+      "type": "301"
+    },
+    {
+      "source": "/api/documentation.html",
+      "destination": "/en/api/v20/documentation/",
+      "type": "301"
+    },
+    {
+      "source": "/api/domain/",
+      "destination": "/en/api/v20/domain/",
+      "type": "301"
+    },
+    {
+      "source": "/api/domain.html",
+      "destination": "/en/api/v20/domain/",
+      "type": "301"
+    },
+    {
+      "source": "/api/embedding/",
+      "destination": "/en/api/v20/embedding/",
+      "type": "301"
+    },
+    {
+      "source": "/api/embedding.html",
+      "destination": "/en/api/v20/embedding/",
+      "type": "301"
+    },
+    {
+      "source": "/api/errors/",
+      "destination": "/en/api/v20/errors/",
+      "type": "301"
+    },
+    {
+      "source": "/api/errors.html",
+      "destination": "/en/api/v20/errors/",
+      "type": "301"
+    },
+    {
+      "source": "/api/esm/",
+      "destination": "/en/api/v20/esm/",
+      "type": "301"
+    },
+    {
+      "source": "/api/esm.html",
+      "destination": "/en/api/v20/esm/",
+      "type": "301"
+    },
+    {
+      "source": "/api/events/",
+      "destination": "/en/api/v20/events/",
+      "type": "301"
+    },
+    {
+      "source": "/api/events.html",
+      "destination": "/en/api/v20/events/",
+      "type": "301"
+    },
+    {
+      "source": "/api/fs/",
+      "destination": "/en/api/v20/fs/",
+      "type": "301"
+    },
+    {
+      "source": "/api/fs.html",
+      "destination": "/en/api/v20/fs/",
+      "type": "301"
+    },
+    {
+      "source": "/api/globals/",
+      "destination": "/en/api/v20/globals/",
+      "type": "301"
+    },
+    {
+      "source": "/api/globals.html",
+      "destination": "/en/api/v20/globals/",
+      "type": "301"
+    },
+    {
+      "source": "/api/http/",
+      "destination": "/en/api/v20/http/",
+      "type": "301"
+    },
+    {
+      "source": "/api/http.html",
+      "destination": "/en/api/v20/http/",
+      "type": "301"
+    },
+    {
+      "source": "/api/http2/",
+      "destination": "/en/api/v20/http2/",
+      "type": "301"
+    },
+    {
+      "source": "/api/http2.html",
+      "destination": "/en/api/v20/http2/",
+      "type": "301"
+    },
+    {
+      "source": "/api/https/",
+      "destination": "/en/api/v20/https/",
+      "type": "301"
+    },
+    {
+      "source": "/api/https.html",
+      "destination": "/en/api/v20/https/",
+      "type": "301"
+    },
+    {
+      "source": "/api/inspector/",
+      "destination": "/en/api/v20/inspector/",
+      "type": "301"
+    },
+    {
+      "source": "/api/inspector.html",
+      "destination": "/en/api/v20/inspector/",
+      "type": "301"
+    },
+    {
+      "source": "/api/intl/",
+      "destination": "/en/api/v20/intl/",
+      "type": "301"
+    },
+    {
+      "source": "/api/intl.html",
+      "destination": "/en/api/v20/intl/",
+      "type": "301"
+    },
+    {
+      "source": "/api/module/",
+      "destination": "/en/api/v20/module/",
+      "type": "301"
+    },
+    {
+      "source": "/api/module.html",
+      "destination": "/en/api/v20/module/",
+      "type": "301"
+    },
+    {
+      "source": "/api/modules/",
+      "destination": "/en/api/v20/modules/",
+      "type": "301"
+    },
+    {
+      "source": "/api/modules.html",
+      "destination": "/en/api/v20/modules/",
+      "type": "301"
+    },
+    {
+      "source": "/api/n-api/",
+      "destination": "/en/api/v20/n-api/",
+      "type": "301"
+    },
+    {
+      "source": "/api/n-api.html",
+      "destination": "/en/api/v20/n-api/",
+      "type": "301"
+    },
+    {
+      "source": "/api/net/",
+      "destination": "/en/api/v20/net/",
+      "type": "301"
+    },
+    {
+      "source": "/api/net.html",
+      "destination": "/en/api/v20/net/",
+      "type": "301"
+    },
+    {
+      "source": "/api/os/",
+      "destination": "/en/api/v20/os/",
+      "type": "301"
+    },
+    {
+      "source": "/api/os.html",
+      "destination": "/en/api/v20/os/",
+      "type": "301"
+    },
+    {
+      "source": "/api/packages/",
+      "destination": "/en/api/v20/packages/",
+      "type": "301"
+    },
+    {
+      "source": "/api/packages.html",
+      "destination": "/en/api/v20/packages/",
+      "type": "301"
+    },
+    {
+      "source": "/api/path/",
+      "destination": "/en/api/v20/path/",
+      "type": "301"
+    },
+    {
+      "source": "/api/path.html",
+      "destination": "/en/api/v20/path/",
+      "type": "301"
+    },
+    {
+      "source": "/api/perf_hooks/",
+      "destination": "/en/api/v20/perf_hooks/",
+      "type": "301"
+    },
+    {
+      "source": "/api/perf_hooks.html",
+      "destination": "/en/api/v20/perf_hooks/",
+      "type": "301"
+    },
+    {
+      "source": "/api/permissions/",
+      "destination": "/en/api/v20/permissions/",
+      "type": "301"
+    },
+    {
+      "source": "/api/permissions.html",
+      "destination": "/en/api/v20/permissions/",
+      "type": "301"
+    },
+    {
+      "source": "/api/policy/",
+      "destination": "/en/api/v20/policy/",
+      "type": "301"
+    },
+    {
+      "source": "/api/policy.html",
+      "destination": "/en/api/v20/policy/",
+      "type": "301"
+    },
+    {
+      "source": "/api/process/",
+      "destination": "/en/api/v20/process/",
+      "type": "301"
+    },
+    {
+      "source": "/api/process.html",
+      "destination": "/en/api/v20/process/",
+      "type": "301"
+    },
+    {
+      "source": "/api/punycode/",
+      "destination": "/en/api/v20/punycode/",
+      "type": "301"
+    },
+    {
+      "source": "/api/punycode.html",
+      "destination": "/en/api/v20/punycode/",
+      "type": "301"
+    },
+    {
+      "source": "/api/querystring/",
+      "destination": "/en/api/v20/querystring/",
+      "type": "301"
+    },
+    {
+      "source": "/api/querystring.html",
+      "destination": "/en/api/v20/querystring/",
+      "type": "301"
+    },
+    {
+      "source": "/api/readline/",
+      "destination": "/en/api/v20/readline/",
+      "type": "301"
+    },
+    {
+      "source": "/api/readline.html",
+      "destination": "/en/api/v20/readline/",
+      "type": "301"
+    },
+    {
+      "source": "/api/repl/",
+      "destination": "/en/api/v20/repl/",
+      "type": "301"
+    },
+    {
+      "source": "/api/repl.html",
+      "destination": "/en/api/v20/repl/",
+      "type": "301"
+    },
+    {
+      "source": "/api/report/",
+      "destination": "/en/api/v20/report/",
+      "type": "301"
+    },
+    {
+      "source": "/api/report.html",
+      "destination": "/en/api/v20/report/",
+      "type": "301"
+    },
+    {
+      "source": "/api/single-executable-applications/",
+      "destination": "/en/api/v20/single-executable-applications/",
+      "type": "301"
+    },
+    {
+      "source": "/api/single-executable-applications.html",
+      "destination": "/en/api/v20/single-executable-applications/",
+      "type": "301"
+    },
+    {
+      "source": "/api/stream/",
+      "destination": "/en/api/v20/stream/",
+      "type": "301"
+    },
+    {
+      "source": "/api/stream.html",
+      "destination": "/en/api/v20/stream/",
+      "type": "301"
+    },
+    {
+      "source": "/api/string_decoder/",
+      "destination": "/en/api/v20/string_decoder/",
+      "type": "301"
+    },
+    {
+      "source": "/api/string_decoder.html",
+      "destination": "/en/api/v20/string_decoder/",
+      "type": "301"
+    },
+    {
+      "source": "/api/synopsis/",
+      "destination": "/en/api/v20/synopsis/",
+      "type": "301"
+    },
+    {
+      "source": "/api/synopsis.html",
+      "destination": "/en/api/v20/synopsis/",
+      "type": "301"
+    },
+    {
+      "source": "/api/test/",
+      "destination": "/en/api/v20/test/",
+      "type": "301"
+    },
+    {
+      "source": "/api/test.html",
+      "destination": "/en/api/v20/test/",
+      "type": "301"
+    },
+    {
+      "source": "/api/timers/",
+      "destination": "/en/api/v20/timers/",
+      "type": "301"
+    },
+    {
+      "source": "/api/timers.html",
+      "destination": "/en/api/v20/timers/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tls/",
+      "destination": "/en/api/v20/tls/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tls.html",
+      "destination": "/en/api/v20/tls/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tracing/",
+      "destination": "/en/api/v20/tracing/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tracing.html",
+      "destination": "/en/api/v20/tracing/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tty/",
+      "destination": "/en/api/v20/tty/",
+      "type": "301"
+    },
+    {
+      "source": "/api/tty.html",
+      "destination": "/en/api/v20/tty/",
+      "type": "301"
+    },
+    {
+      "source": "/api/url/",
+      "destination": "/en/api/v20/url/",
+      "type": "301"
+    },
+    {
+      "source": "/api/url.html",
+      "destination": "/en/api/v20/url/",
+      "type": "301"
+    },
+    {
+      "source": "/api/util/",
+      "destination": "/en/api/v20/util/",
+      "type": "301"
+    },
+    {
+      "source": "/api/util.html",
+      "destination": "/en/api/v20/util/",
+      "type": "301"
+    },
+    {
+      "source": "/api/v8/",
+      "destination": "/en/api/v20/v8/",
+      "type": "301"
+    },
+    {
+      "source": "/api/v8.html",
+      "destination": "/en/api/v20/v8/",
+      "type": "301"
+    },
+    {
+      "source": "/api/vm/",
+      "destination": "/en/api/v20/vm/",
+      "type": "301"
+    },
+    {
+      "source": "/api/vm.html",
+      "destination": "/en/api/v20/vm/",
+      "type": "301"
+    },
+    {
+      "source": "/api/wasi/",
+      "destination": "/en/api/v20/wasi/",
+      "type": "301"
+    },
+    {
+      "source": "/api/wasi.html",
+      "destination": "/en/api/v20/wasi/",
+      "type": "301"
+    },
+    {
+      "source": "/api/webcrypto/",
+      "destination": "/en/api/v20/webcrypto/",
+      "type": "301"
+    },
+    {
+      "source": "/api/webcrypto.html",
+      "destination": "/en/api/v20/webcrypto/",
+      "type": "301"
+    },
+    {
+      "source": "/api/webstreams/",
+      "destination": "/en/api/v20/webstreams/",
+      "type": "301"
+    },
+    {
+      "source": "/api/webstreams.html",
+      "destination": "/en/api/v20/webstreams/",
+      "type": "301"
+    },
+    {
+      "source": "/api/worker_threads/",
+      "destination": "/en/api/v20/worker_threads/",
+      "type": "301"
+    },
+    {
+      "source": "/api/worker_threads.html",
+      "destination": "/en/api/v20/worker_threads/",
+      "type": "301"
+    },
+    {
+      "source": "/api/zlib/",
+      "destination": "/en/api/v20/zlib/",
+      "type": "301"
+    },
+    {
+      "source": "/api/zlib.html",
+      "destination": "/en/api/v20/zlib/",
       "type": "301"
     }
   ]

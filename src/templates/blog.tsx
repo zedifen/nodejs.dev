@@ -1,82 +1,84 @@
-import { graphql } from 'gatsby';
-import React from 'react';
-import Article from '../components/Article';
-import Layout from '../components/Layout';
-import { BlogPageData, BlogPageContext } from '../types';
+import React, { useMemo } from 'react';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
+import DefaultLayout from '../layouts/default';
+import { ArticleComponents, BlogComponents } from '../components';
+import BlogNavigation from '../navigations/blog';
+import { blogPath } from '../../pathPrefixes';
+import { BlogCategory, BlogTemplateContext } from '../types';
+import getPaginationPath from '../../util-node/getPaginationPath';
+import styles from '../styles/templates/blog.module.scss';
 
-import '../styles/article-reader.scss';
-import '../styles/learn.scss';
-import RecentPosts from '../components/RecentPosts';
+const blogHomeSection = {
+  title: 'blog.categories.all',
+  slug: blogPath,
+};
+
+const getCategoryName = (category: string) =>
+  category.length ? `${blogPath}${category}/` : blogPath;
+
+const parseNavigationData = (c: BlogCategory[]) =>
+  c.map(({ node }) => ({ title: node.slug, slug: `${blogPath}${node.name}/` }));
 
 interface Props {
-  data: BlogPageData;
-  pageContext: BlogPageContext;
+  pageContext: BlogTemplateContext;
 }
 
-const BlogLayout = ({
-  data: {
-    blog: {
-      frontmatter: { title, blogAuthors },
-      body,
-      excerpt,
-      fields: { date },
-    },
-    recent: { edges: recentPosts },
-  },
-  pageContext: { next, previous, relativePath },
-}: Props): JSX.Element => (
-  <Layout title={title} description={excerpt}>
-    <main className="grid-container blog-container">
-      <RecentPosts posts={recentPosts} />
-      <Article
-        title={title}
-        body={body}
-        next={next}
-        authors={blogAuthors}
-        previous={previous}
-        relativePath={relativePath}
-        blog
-        date={date}
-      />
-    </main>
-  </Layout>
-);
-
-export default BlogLayout;
-
-export const query = graphql`
-  query ($slug: String!) {
-    blog: mdx(fields: { slug: { eq: $slug } }) {
-      body
-      excerpt(pruneLength: 500)
-      frontmatter {
-        title
-        blogAuthors {
-          id
-          name
-          website
-        }
-      }
-      fields {
-        slug
-        date(formatString: "MMMM DD, YYYY")
-      }
+const BlogTemplate = ({
+  pageContext: { category, categories, pagination, posts },
+  intl,
+}: Props & WrappedComponentProps): JSX.Element => {
+  const currentCategory = useMemo(() => {
+    if (category) {
+      return {
+        name: category.name,
+        slug: intl.formatMessage({ id: category.slug }),
+        description: intl.formatMessage({ id: category.description }),
+      };
     }
-    recent: allMdx(
-      limit: 10
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
-      sort: { fields: fields___date, order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;
+
+    return {
+      name: '',
+      slug: intl.formatMessage({ id: 'blog.title' }),
+      description: intl.formatMessage({ id: 'blog.description' }),
+    };
+  }, [category, intl]);
+
+  const shouldShowPagination = pagination.total > 1;
+
+  return (
+    <DefaultLayout title="Blogs at Nodejs">
+      <main className="grid-container">
+        <BlogNavigation
+          currentCategory={getCategoryName(currentCategory.name)}
+          categories={[blogHomeSection, ...parseNavigationData(categories)]}
+        />
+        <div className={styles.blogGridContainer}>
+          <div className={styles.blogCategoryHeader}>
+            <h1>{currentCategory.slug}</h1>
+            <ArticleComponents.BlockQuote>
+              {currentCategory.description}
+            </ArticleComponents.BlockQuote>
+          </div>
+          <div className={styles.blogItems}>
+            {posts.map(edge => (
+              <BlogComponents.BlogCard
+                key={edge.node.fields.slug}
+                data={edge}
+              />
+            ))}
+          </div>
+          {shouldShowPagination && (
+            <BlogComponents.Pagination
+              currentPage={pagination.current}
+              hrefBuilder={getPaginationPath(blogPath, category?.name)}
+              pageCount={pagination.total}
+              wrapperClassName={styles.blogPaginationWrapper}
+            />
+          )}
+        </div>
+      </main>
+    </DefaultLayout>
+  );
+};
+
+export default injectIntl(BlogTemplate);

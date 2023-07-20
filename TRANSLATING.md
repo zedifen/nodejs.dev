@@ -42,20 +42,6 @@ The `src/i18n/config.json` file is a JSON file structured by one single Collecti
 
 **Note.:** When testing a Language locally on your installation, please change `enabled: false` to `enabled: true`
 
-## Enabling the I18N Language Selector
-
-Currently the Language selector is disabled globally, as the Languages are still being translated. This is a work-in-progress. 
-
-For development and translation purposes you can enable it on your local installation or on Nodejs.dev by injecting the following snippet in your browser DevTools:
-
-```js
-window.localStorage.node_featureFlags = '["i18n-language-selector"]';
-```
-
-**Note.:** This only enables the Language Selector. By default you don't need to use it to switch between languages. 
-You can simply on the current URL of the page, change the default `/en/` prefix into `/{yourlanguage}/` (e.g.: `/es/`). 
-Please remember to enable the language first, if disabled on the `src/i18n/config.json` file.
-
 ## Translating in-App Texts (Translations that are shown in UI Elements/Components)
 
 As you might have noticed, some of the translations/pieces of text from this website, are used directly within UI Components and do not come from Markdown files.
@@ -93,6 +79,20 @@ When creating translations or updating translations for other languages, simply 
 Most of our Pages contents reside within the `content/` folder. Our pages are written with [Markdown](https://www.markdownguide.org/) and [MDX](https://mdxjs.com/). They supercharge your environment by allowing a custom synatx when writting the pages. Think about these Markdown files as a Microsoft Word document but with an extra Syntax for writing text.
 
 Please refer to the Markdown and MDX guides mentioned above if you're struggling with the Syntax or inner-workings of these Idiomatic Languages/Syntaxes.
+
+## Adding Translations of Components
+
+When adding new translations towards a JSON file, we recommend always to add them in the bottom of the file. This allows contributors to easily see changesets, and see the diff between one translation file from another.
+
+**Note.:** We recommend to use a similar pattern when creating translation keys 👀
+
+### Adding React-Intl to a Component
+
+We recommend using [`injectIntl`](https://formatjs.io/docs/react-intl/api/#injectintl-hoc) HOC (High-order-Component) to bundle the `intl` object within your Component.
+
+We also recommend using the [`<FormattedMessage />`](https://formatjs.io/docs/react-intl/components/#formattedmessage) Component when possible, which doesn't require you to use `injectIntl`, as usually `injectIntl` is used when you need to have access to Imperative APIs such as `intl.formatMessage()`.
+
+This method `intl.formatMessage` should usually be used when you need a translated text on a part of the code that is not JSX. For example, within a Component Prop (Common example.: `aria-label`) or somewhere else.
 
 ### How to translate a page?
 

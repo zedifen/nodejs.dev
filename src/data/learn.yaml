@@ -4,64 +4,39 @@
 # The items property of the section uses the `id` of the files which is interpolated from Gatsby's Node fileAbsolutePath.
 # Note.: If an item here doesn't exist in the content folder it is ignored.
 # Note.: If your Markdown file is inside a subfolder, call it `index.md` and write here the name of the folder
-- section: 'Quick Start'
-  items:
-    - node-introduction
-    - node-history
-    - node-installation
-    - node-javascript-language
-    - node-difference-browser
 - section: 'Getting Started'
   items:
-    - v8-engine
-    - node-run-cli
-    - node-terminate-program
-    - node-environment-variables
-    - node-repl
-    - node-cli-args
-    - node-output-to-cli
-    - node-input-from-cli
-    - node-export-module
-    - npm
-    - where-npm-install-packages
-    - how-to-use-npm-package
-    - package-json
-    - package-lock-json
-    - npm-know-version-installed
-    - npm-install-previous-package-version
-    - update-npm-dependencies
-    - npm-semantic-versioning
-    - npm-uninstall-packages
-    - npm-packages-local-global
-    - npm-dependencies-devdependencies
-    - npx
-    - node-event-loop
-    - node-process-nexttick
-    - node-setimmediate
-    - javascript-timers
-    - javascripts-callbacks
-    - javascript-promises
-    - javascript-async-await
-    - node-event-emitter
-    - node-http-server
-    - node-make-http-requests
-    - node-request-data
-    - node-file-descriptions
-    - node-file-stats
-    - node-file-paths
-    - node-reading-files
-    - node-writing-files
-    - node-folders
-    - node-module-fs
-    - node-module-path
-    - node-module-os
-    - node-module-events
-    - node-module-http
-    - node-buffers
-    - nodejs-streams
-    - node-difference-dev-prod
-    - node-exceptions
-    - node-inspect-object
-    - node-with-typescript
-    - node-control-flow
-    - node-with-web-assembly
+    - getting-started/node-introduction
+    - getting-started/node-installation
+    - getting-started/node-javascript-language
+    - getting-started/node-difference-browser
+    - getting-started/v8-engine
+    - getting-started/npm
+    - getting-started/node-es6
+    - getting-started/node-difference-dev-prod
+    - getting-started/node-with-typescript
+    - getting-started/node-with-web-assembly
+- section: 'Asynchronous Work'
+  items:
+    - asynchronous-work/node-control-flow
+    - asynchronous-work/blocking-vs-non-blocking
+    - asynchronous-work/javascript-callbacks
+    - asynchronous-work/node-process-nexttick
+    - asynchronous-work/javascript-timers
+    - asynchronous-work/node-setimmediate
+    - asynchronous-work/node-event-emitter
+- section: 'Manipulating Files'
+  items:
+    - manipulating-files/node-file-stats
+    - manipulating-files/node-file-paths
+    - manipulating-files/node-file-descriptors
+    - manipulating-files/node-reading-files
+    - manipulating-files/node-writing-files
+    - manipulating-files/node-folders
+- section: 'Command Line'
+  items:
+    - command-line/node-run-cli
+    - command-line/node-environment-variables
+    - command-line/node-repl
+    - command-line/node-output-to-cli
+    - command-line/node-input-from-cli

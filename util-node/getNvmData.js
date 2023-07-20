@@ -1,20 +1,22 @@
-const fetch = require('node-fetch');
+const createGitHubHeaders = require('./createGitHubHeaders');
+const { nvmTags } = require('../apiUrls');
 
 const isNvmTag = data => data && typeof data.name === 'string';
 const areNvmTags = data => Array.isArray(data) && data.every(isNvmTag);
 
-const getLatestNvmVersion = async () => {
-  const nvmTagsResponse = await fetch(
-    'https://api.github.com/repos/nvm-sh/nvm/tags'
-  );
-  const nvmTagsData = await nvmTagsResponse.json();
+function getLatestNvmVersion() {
+  const parseNvmVersions = nvmTagsData => {
+    if (!areNvmTags(nvmTagsData) || nvmTagsData.length === 0) {
+      // GitHub might rate-limit and we don't want to block development because of that
+      return { version: 'unknown' };
+    }
 
-  if (!areNvmTags(nvmTagsData) || nvmTagsData.length === 0) {
-    throw new Error('Unable to parse response');
-  }
+    return { version: nvmTagsData[0].name };
+  };
 
-  const [latestVersion] = nvmTagsData;
-  return { version: latestVersion.name };
-};
+  return fetch(nvmTags, createGitHubHeaders())
+    .then(response => response.json())
+    .then(parseNvmVersions);
+}
 
 module.exports = getLatestNvmVersion;

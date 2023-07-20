@@ -1,38 +1,37 @@
-import React, { useEffect, useRef } from 'react';
-import Dropdown, { DropdownItem } from '../components/Dropdown';
+import React, { useEffect, useCallback } from 'react';
+import { CommonComponents } from '../components';
+import { DropdownItem } from '../types';
 
-// eslint-disable-next-line import/prefer-default-export
 export const useAutoClosableDropdown = <T extends HTMLElement>(
   items: Array<DropdownItem>,
   elementRef: React.RefObject<T>
 ) => {
   const [shouldShow, setShouldShow] = React.useState(false);
 
-  // this is used as an event listener doesn't have access to the state
-  const shouldShowRef = useRef(shouldShow);
-
-  const updateVisibility = (value: boolean) => {
+  const updateVisibility = useCallback((value: boolean) => {
     setShouldShow(value);
-    shouldShowRef.current = value;
-  };
+  }, []);
 
-  const hideDropdownIfVisible = () => {
-    if (shouldShowRef.current === true) {
+  const hideDropdownIfVisible = useCallback(() => {
+    if (shouldShow) {
       updateVisibility(false);
     }
-  };
+  }, [updateVisibility, shouldShow]);
 
   useEffect(() => {
     document.addEventListener('click', hideDropdownIfVisible, true);
 
     return () =>
       document.removeEventListener('click', hideDropdownIfVisible, true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [hideDropdownIfVisible]);
 
   return {
     renderDropdown: (
-      <Dropdown items={items} elementRef={elementRef} shouldShow={shouldShow} />
+      <CommonComponents.Dropdown
+        items={items}
+        elementRef={elementRef}
+        shouldShow={shouldShow}
+      />
     ),
     visible: shouldShow,
     showDropdown: updateVisibility,

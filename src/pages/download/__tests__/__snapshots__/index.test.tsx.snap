@@ -1,0 +1,2157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Download page renders correctly 1`] = `
+<div>
+  <div
+    class="layout-container"
+  >
+    <nav
+      aria-label="Primary"
+      class="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="startWrapper"
+        >
+          <a
+            aria-label="Homepage"
+            href="/"
+          >
+            <div
+              class="logo"
+            >
+              <svg
+                class="light-mode-only"
+              />
+              <svg
+                class="dark-mode-only"
+              />
+            </div>
+          </a>
+        </div>
+        <ul
+          class="tabs"
+        >
+          <li>
+            <a
+              href="/learn/"
+            >
+              Learn
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about/"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="/api/"
+            >
+              API Docs
+            </a>
+          </li>
+          <li>
+            <a
+              href="/download/"
+            >
+              Download
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://openjsf.org/certification/"
+            >
+              Certification
+            </a>
+          </li>
+        </ul>
+        <div
+          class="endWrapper"
+        >
+          <ul
+            class="rightContainer"
+          >
+            <li
+              class="searchBar"
+            >
+              <span
+                class="sr-only"
+              >
+                Search Bar
+              </span>
+              <div
+                class="searchBarContainer"
+                style="min-height: 0em; width: 100%; max-width: min-content; box-shadow: none;"
+              >
+                <div
+                  class="searchInputContainer"
+                  role="presentation"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium searchIcon css-8rv7ug-MuiSvgIcon-root"
+                    data-testid="TravelExploreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19.3 16.9c.4-.7.7-1.5.7-2.4 0-2.5-2-4.5-4.5-4.5S11 12 11 14.5s2 4.5 4.5 4.5c.9 0 1.7-.3 2.4-.7l3.2 3.2 1.4-1.4-3.2-3.2zm-3.8.1c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zM12 20v2C6.48 22 2 17.52 2 12S6.48 2 12 2c4.84 0 8.87 3.44 9.8 8h-2.07c-.64-2.46-2.4-4.47-4.73-5.41V5c0 1.1-.9 2-2 2h-2v2c0 .55-.45 1-1 1H8v2h2v3H9l-4.79-4.79C4.08 10.79 4 11.38 4 12c0 4.41 3.59 8 8 8z"
+                    />
+                  </svg>
+                  <label
+                    for="searchInput"
+                  >
+                    <span>
+                      Search
+                    </span>
+                    <input
+                      autocomplete="off"
+                      class="inputText"
+                      id="searchInput"
+                      name="query"
+                      type="text"
+                      value=""
+                    />
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li>
+              <button
+                aria-pressed="false"
+                class="darkModeToggle"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Toggle Dark Mode
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium light-mode-only css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="ModeNightIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9.5 2c-1.82 0-3.53.5-5 1.35 2.99 1.73 5 4.95 5 8.65s-2.01 6.92-5 8.65c1.47.85 3.18 1.35 5 1.35 5.52 0 10-4.48 10-10S15.02 2 9.5 2z"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium dark-mode-only css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="BrightnessMediumIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                aria-expanded="false"
+                class="languageSwitch"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Switch Language
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="TranslateIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m12.87 15.07-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7 1.62-4.33L19.12 17h-3.24z"
+                  />
+                </svg>
+              </button>
+              <ul
+                class="dropdownList"
+                style="left: -10px; top: -15px; visibility: hidden;"
+              >
+                <li>
+                  <button
+                    style="font-weight: bold;"
+                    type="button"
+                  >
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    Français
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    Português
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    简体中文
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="https://github.com/nodejs/nodejs.dev"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span
+                  class="sr-only"
+                >
+                  GitHub
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-github "
+                  color="var(--color-text-accent)"
+                  data-icon="github"
+                  data-prefix="fab"
+                  focusable="false"
+                  role="img"
+                  style="padding: 1rem; width: 2rem; height: 2rem;"
+                  viewBox="0 0 496 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="home-container downloadPageContainer"
+    >
+      <div
+        class="downloadHeader"
+      >
+        <div
+          class="sectionTitle"
+        >
+          home / 
+          <span
+            class="active"
+          >
+            downloads
+          </span>
+        </div>
+        <div>
+          LATEST LTS VERSION v16.18.0
+        </div>
+      </div>
+      <div
+        class="downloadHeader"
+      >
+        <div
+          class="title"
+        >
+          Downloads
+        </div>
+        <div
+          class="npm"
+        >
+          (includes npm)
+        </div>
+      </div>
+      <p
+        class="releaseDescription"
+      >
+        Download the Node.js source code, a pre-built installer for your platform, or install via a
+         
+        <a
+          href="/download/package-manager"
+        >
+          package manager
+        </a>
+        .
+      </p>
+      <div
+        class="downloadToogle"
+      >
+        <div
+          class="selector"
+        >
+          <div
+            class="switch"
+          >
+            <button
+              aria-checked="true"
+              aria-label="LTS Versions"
+              class="active"
+              role="switch"
+              type="button"
+            >
+              LTS
+            </button>
+            <button
+              aria-checked="false"
+              aria-label="Current Versions"
+              class="current"
+              role="switch"
+              type="button"
+            >
+              Current
+            </button>
+          </div>
+        </div>
+        <p
+          class="description"
+        >
+          Recommended for most users
+        </p>
+      </div>
+      <div
+        class="downloadCardsWrapper"
+        data-rttabs="true"
+        tabindex="-1"
+      >
+        <ul
+          class="downloadCards"
+          role="tablist"
+        >
+          <li
+            aria-controls="paneldownload-card-WIN"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard"
+            data-rttab="true"
+            id="tabdownload-card-WIN"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+            </div>
+            <p
+              class="label"
+            >
+              Windows Installer
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v16.18.0-x86.msi
+            </p>
+          </li>
+          <li
+            aria-controls="paneldownload-card-MAC"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard"
+            data-rttab="true"
+            id="tabdownload-card-MAC"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+            </div>
+            <p
+              class="label"
+            >
+              MAC Installer
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v16.18.0.pkg
+            </p>
+          </li>
+          <li
+            aria-controls="paneldownload-card-SOURCECODE"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard downloadCardActive"
+            data-rttab="true"
+            id="tabdownload-card-SOURCECODE"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+              <a
+                class="link"
+                href="https://nodejs.org/dist/v16.18.0/node-v16.18.0.tar.gz"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="GetAppIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p
+              class="label"
+            >
+              Source Code
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v16.18.0.tar.gz
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="downloadReleases"
+      >
+        <h2
+          class="title"
+        >
+          Upcoming Releases
+        </h2>
+        <div
+          class="upcomingReleases"
+        >
+          <div
+            class="reactTabs"
+            data-rttabs="true"
+          >
+            <ul
+              class="reactTabsTabList"
+              role="tablist"
+            >
+              <li
+                aria-controls="panel:r1:0"
+                aria-disabled="false"
+                aria-selected="true"
+                class="reactTabsTab reactTabsTabSelected"
+                data-rttab="true"
+                id="tab:r1:0"
+                role="tab"
+                tabindex="0"
+              >
+                Node.js 
+                v18
+              </li>
+              <li
+                aria-controls="panel:r1:1"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r1:1"
+                role="tab"
+              >
+                Node.js 
+                v16
+              </li>
+              <li
+                aria-controls="panel:r1:2"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r1:2"
+                role="tab"
+              >
+                Node.js 
+                v14
+              </li>
+              <li
+                aria-controls="panel:r1:3"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r1:3"
+                role="tab"
+              >
+                Node.js 
+                v12
+              </li>
+            </ul>
+            <div
+              aria-labelledby="tab:r1:0"
+              class="reactTabsTabPanel reactTabsTabPanelSelected"
+              id="panel:r1:0"
+              role="tabpanel"
+            >
+              <div
+                class="upcomingReleasesPanel"
+              >
+                <div
+                  class="itemCurrent"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    Current
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                    Released
+                     
+                    2022-04-19
+                  </p>
+                </div>
+                <div
+                  class="itemLts"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    LTS
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                    Released
+                     
+                    2022-10-25
+                  </p>
+                </div>
+                <div
+                  class="itemMaintenance itemToBeReleased"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    Maintenance
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                     
+                    2023-10-18
+                  </p>
+                </div>
+                <div
+                  class="itemEndoflife itemToBeReleased"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    End-of-life
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                     
+                    2025-04-30
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab:r1:1"
+              class="reactTabsTabPanel"
+              id="panel:r1:1"
+              role="tabpanel"
+            />
+            <div
+              aria-labelledby="tab:r1:2"
+              class="reactTabsTabPanel"
+              id="panel:r1:2"
+              role="tabpanel"
+            />
+            <div
+              aria-labelledby="tab:r1:3"
+              class="reactTabsTabPanel"
+              id="panel:r1:3"
+              role="tabpanel"
+            />
+          </div>
+        </div>
+        <p>
+          Major Node.js versions enter Current release status for six months, which gives library authors time to add support for them. After six months, odd-numbered releases (9, 11, etc.) become unsupported, and even-numbered releases (10, 12, etc.) move to Active LTS status and are ready for general use. LTS release status is "long-term support", which typically guarantees that critical bugs will be fixed for a total of 30 months. Production applications should only use Active LTS or Maintenance LTS releases.
+        </p>
+        <div
+          class="downloadTableContainer"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Release
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Codename
+                </th>
+                <th>
+                  Initial Release
+                </th>
+                <th>
+                  Active LTS Start
+                </th>
+                <th>
+                  Maintenance LTS Start
+                </th>
+                <th>
+                  End of Life
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v18.x/"
+                  >
+                    v18
+                  </a>
+                </td>
+                <td>
+                  Current
+                </td>
+                <td />
+                <td>
+                  2022-04-19
+                </td>
+                <td>
+                  2022-10-25
+                </td>
+                <td>
+                  2023-10-18
+                </td>
+                <td>
+                  2025-04-30
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v16.x/"
+                  >
+                    v16
+                  </a>
+                </td>
+                <td>
+                  Maintenance LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-gallium/"
+                  >
+                    gallium
+                  </a>
+                </td>
+                <td>
+                  2021-04-20
+                </td>
+                <td>
+                  2021-10-26
+                </td>
+                <td>
+                  2022-10-18
+                </td>
+                <td>
+                  2023-09-11
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v14.x/"
+                  >
+                    v14
+                  </a>
+                </td>
+                <td>
+                  Active LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-fermium/"
+                  >
+                    fermium
+                  </a>
+                </td>
+                <td>
+                  2020-04-21
+                </td>
+                <td>
+                  2020-10-17
+                </td>
+                <td>
+                  2021-10-19
+                </td>
+                <td>
+                  2023-04-30
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v12.x/"
+                  >
+                    v12
+                  </a>
+                </td>
+                <td>
+                  Maintenance LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-erbium/"
+                  >
+                    erbium
+                  </a>
+                </td>
+                <td>
+                  2019-04-23
+                </td>
+                <td>
+                  2019-10-21
+                </td>
+                <td>
+                  2020-11-30
+                </td>
+                <td>
+                  2022-04-30
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="downloadAdditional"
+      >
+        <div
+          class="header"
+        >
+          <h3
+            class="title"
+          >
+            Additional Downloads
+          </h3>
+          <div
+            class="downloadToogle"
+          >
+            <div
+              class="selector"
+            >
+              <div
+                class="switch"
+              >
+                <button
+                  aria-checked="true"
+                  aria-label="LTS Versions"
+                  class="active"
+                  role="switch"
+                  type="button"
+                >
+                  LTS
+                </button>
+                <button
+                  aria-checked="false"
+                  aria-label="Current Versions"
+                  class="current"
+                  role="switch"
+                  type="button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="body"
+        >
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Windows Installer (.msi)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Windows Binary (.zip)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              macOS Installer (.pkg)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              macOS Binary (.tar.gz)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Linux (PPC, S390x, AIX, ARMv7, ARMv8)
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="footer"
+    >
+      <ul
+        class="left"
+      >
+        <li>
+          <a
+            aria-label="Node.js Trademark Policy - PDF (Opens in new tab)"
+            class="link"
+            href="https://trademark-policy.openjsf.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Trademark Policy
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Privacy Policy - PDF (Opens in new tab)"
+            class="link"
+            href="https://privacy-policy.openjsf.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="https://github.com/openjs-foundation/cross-project-council/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct"
+          >
+            Code of Conduct
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/about/security"
+          >
+            Security
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/about"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/blog"
+          >
+            Blog
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="right"
+      >
+        <li>
+          © OpenJS Foundation
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Github Page (opens in new tab)"
+            href="https://github.com/nodejs/node"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-github "
+              color="var(--color-text-secondary)"
+              data-icon="github"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Mastodon (opens in new tab)"
+            href="https://mastodon.social/@nodejs@social.lfx.dev"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-mastodon "
+              color="var(--color-text-secondary)"
+              data-icon="mastodon"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Twitter (opens in new tab)"
+            href="https://twitter.com/nodejs"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-twitter "
+              color="var(--color-text-secondary)"
+              data-icon="twitter"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Slack (opens in new tab)"
+            href="https://slack.openjsf.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-slack "
+              color="var(--color-text-secondary)"
+              data-icon="slack"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+`;
+
+exports[`Download page should handle LTS to Current switch 1`] = `
+<div>
+  <div
+    class="layout-container"
+  >
+    <nav
+      aria-label="Primary"
+      class="header"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="startWrapper"
+        >
+          <a
+            aria-label="Homepage"
+            href="/"
+          >
+            <div
+              class="logo"
+            >
+              <svg
+                class="light-mode-only"
+              />
+              <svg
+                class="dark-mode-only"
+              />
+            </div>
+          </a>
+        </div>
+        <ul
+          class="tabs"
+        >
+          <li>
+            <a
+              href="/learn/"
+            >
+              Learn
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about/"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              href="/api/"
+            >
+              API Docs
+            </a>
+          </li>
+          <li>
+            <a
+              href="/download/"
+            >
+              Download
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://openjsf.org/certification/"
+            >
+              Certification
+            </a>
+          </li>
+        </ul>
+        <div
+          class="endWrapper"
+        >
+          <ul
+            class="rightContainer"
+          >
+            <li
+              class="searchBar"
+            >
+              <span
+                class="sr-only"
+              >
+                Search Bar
+              </span>
+              <div
+                class="searchBarContainer"
+                style="min-height: 0em; width: 100%; max-width: min-content; box-shadow: none;"
+              >
+                <div
+                  class="searchInputContainer"
+                  role="presentation"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium searchIcon css-8rv7ug-MuiSvgIcon-root"
+                    data-testid="TravelExploreIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M19.3 16.9c.4-.7.7-1.5.7-2.4 0-2.5-2-4.5-4.5-4.5S11 12 11 14.5s2 4.5 4.5 4.5c.9 0 1.7-.3 2.4-.7l3.2 3.2 1.4-1.4-3.2-3.2zm-3.8.1c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zM12 20v2C6.48 22 2 17.52 2 12S6.48 2 12 2c4.84 0 8.87 3.44 9.8 8h-2.07c-.64-2.46-2.4-4.47-4.73-5.41V5c0 1.1-.9 2-2 2h-2v2c0 .55-.45 1-1 1H8v2h2v3H9l-4.79-4.79C4.08 10.79 4 11.38 4 12c0 4.41 3.59 8 8 8z"
+                    />
+                  </svg>
+                  <label
+                    for="searchInput"
+                  >
+                    <span>
+                      Search
+                    </span>
+                    <input
+                      autocomplete="off"
+                      class="inputText"
+                      id="searchInput"
+                      name="query"
+                      type="text"
+                      value=""
+                    />
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li>
+              <button
+                aria-pressed="false"
+                class="darkModeToggle"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Toggle Dark Mode
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium light-mode-only css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="ModeNightIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9.5 2c-1.82 0-3.53.5-5 1.35 2.99 1.73 5 4.95 5 8.65s-2.01 6.92-5 8.65c1.47.85 3.18 1.35 5 1.35 5.52 0 10-4.48 10-10S15.02 2 9.5 2z"
+                  />
+                </svg>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium dark-mode-only css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="BrightnessMediumIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 15.31 23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69zM12 18V6c3.31 0 6 2.69 6 6s-2.69 6-6 6z"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button
+                aria-expanded="false"
+                class="languageSwitch"
+                type="button"
+              >
+                <span
+                  class="sr-only"
+                >
+                  Switch Language
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="TranslateIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m12.87 15.07-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7 1.62-4.33L19.12 17h-3.24z"
+                  />
+                </svg>
+              </button>
+              <ul
+                class="dropdownList"
+                style="left: -10px; top: -15px; visibility: hidden;"
+              >
+                <li>
+                  <button
+                    style="font-weight: bold;"
+                    type="button"
+                  >
+                    English
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    Français
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    Português
+                  </button>
+                </li>
+                <li>
+                  <button
+                    style="font-weight: normal;"
+                    type="button"
+                  >
+                    简体中文
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="https://github.com/nodejs/nodejs.dev"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <span
+                  class="sr-only"
+                >
+                  GitHub
+                </span>
+                <svg
+                  aria-hidden="true"
+                  class="svg-inline--fa fa-github "
+                  color="var(--color-text-accent)"
+                  data-icon="github"
+                  data-prefix="fab"
+                  focusable="false"
+                  role="img"
+                  style="padding: 1rem; width: 2rem; height: 2rem;"
+                  viewBox="0 0 496 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main
+      class="home-container downloadPageContainer"
+    >
+      <div
+        class="downloadHeader"
+      >
+        <div
+          class="sectionTitle"
+        >
+          home / 
+          <span
+            class="active"
+          >
+            downloads
+          </span>
+        </div>
+        <div>
+          CURRENT VERSION v18.0.0
+        </div>
+      </div>
+      <div
+        class="downloadHeader"
+      >
+        <div
+          class="title"
+        >
+          Downloads
+        </div>
+        <div
+          class="npm"
+        >
+          (includes npm)
+        </div>
+      </div>
+      <p
+        class="releaseDescription"
+      >
+        Download the Node.js source code, a pre-built installer for your platform, or install via a
+         
+        <a
+          href="/download/package-manager"
+        >
+          package manager
+        </a>
+        .
+      </p>
+      <div
+        class="downloadToogle"
+      >
+        <div
+          class="selector"
+        >
+          <div
+            class="switch"
+          >
+            <button
+              aria-checked="false"
+              aria-label="LTS Versions"
+              class=""
+              role="switch"
+              type="button"
+            >
+              LTS
+            </button>
+            <button
+              aria-checked="true"
+              aria-label="Current Versions"
+              class="current active"
+              role="switch"
+              type="button"
+            >
+              Current
+            </button>
+          </div>
+        </div>
+        <p
+          class="description"
+        >
+          With the latest features
+        </p>
+      </div>
+      <div
+        class="downloadCardsWrapper"
+        data-rttabs="true"
+        tabindex="-1"
+      >
+        <ul
+          class="downloadCards"
+          role="tablist"
+        >
+          <li
+            aria-controls="paneldownload-card-WIN"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard"
+            data-rttab="true"
+            id="tabdownload-card-WIN"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+            </div>
+            <p
+              class="label"
+            >
+              Windows Installer
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v18.0.0-x86.msi
+            </p>
+          </li>
+          <li
+            aria-controls="paneldownload-card-MAC"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard"
+            data-rttab="true"
+            id="tabdownload-card-MAC"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+            </div>
+            <p
+              class="label"
+            >
+              MAC Installer
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v18.0.0.pkg
+            </p>
+          </li>
+          <li
+            aria-controls="paneldownload-card-SOURCECODE"
+            aria-disabled="false"
+            aria-selected="false"
+            class="downloadCard downloadCardActive"
+            data-rttab="true"
+            id="tabdownload-card-SOURCECODE"
+            role="tab"
+            tabindex="0"
+          >
+            <div
+              class="top"
+            >
+              <svg
+                class="image"
+              />
+              <a
+                class="link"
+                href="https://nodejs.org/dist/v18.0.0/node-v18.0.0.tar.gz"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-8rv7ug-MuiSvgIcon-root"
+                  data-testid="GetAppIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <p
+              class="label"
+            >
+              Source Code
+            </p>
+            <p
+              class="filename"
+              data-testid="lts"
+            >
+              node-v18.0.0.tar.gz
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="downloadReleases"
+      >
+        <h2
+          class="title"
+        >
+          Upcoming Releases
+        </h2>
+        <div
+          class="upcomingReleases"
+        >
+          <div
+            class="reactTabs"
+            data-rttabs="true"
+          >
+            <ul
+              class="reactTabsTabList"
+              role="tablist"
+            >
+              <li
+                aria-controls="panel:r3:0"
+                aria-disabled="false"
+                aria-selected="true"
+                class="reactTabsTab reactTabsTabSelected"
+                data-rttab="true"
+                id="tab:r3:0"
+                role="tab"
+                tabindex="0"
+              >
+                Node.js 
+                v18
+              </li>
+              <li
+                aria-controls="panel:r3:1"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r3:1"
+                role="tab"
+              >
+                Node.js 
+                v16
+              </li>
+              <li
+                aria-controls="panel:r3:2"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r3:2"
+                role="tab"
+              >
+                Node.js 
+                v14
+              </li>
+              <li
+                aria-controls="panel:r3:3"
+                aria-disabled="false"
+                aria-selected="false"
+                class="reactTabsTab"
+                data-rttab="true"
+                id="tab:r3:3"
+                role="tab"
+              >
+                Node.js 
+                v12
+              </li>
+            </ul>
+            <div
+              aria-labelledby="tab:r3:0"
+              class="reactTabsTabPanel reactTabsTabPanelSelected"
+              id="panel:r3:0"
+              role="tabpanel"
+            >
+              <div
+                class="upcomingReleasesPanel"
+              >
+                <div
+                  class="itemCurrent"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    Current
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                    Released
+                     
+                    2022-04-19
+                  </p>
+                </div>
+                <div
+                  class="itemLts"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    LTS
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                    Released
+                     
+                    2022-10-25
+                  </p>
+                </div>
+                <div
+                  class="itemMaintenance itemToBeReleased"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    Maintenance
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                     
+                    2023-10-18
+                  </p>
+                </div>
+                <div
+                  class="itemEndoflife itemToBeReleased"
+                >
+                  <svg />
+                  <p
+                    class="releaseTitle"
+                  >
+                    End-of-life
+                  </p>
+                  <p
+                    class="releaseDate"
+                  >
+                     
+                    2025-04-30
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              aria-labelledby="tab:r3:1"
+              class="reactTabsTabPanel"
+              id="panel:r3:1"
+              role="tabpanel"
+            />
+            <div
+              aria-labelledby="tab:r3:2"
+              class="reactTabsTabPanel"
+              id="panel:r3:2"
+              role="tabpanel"
+            />
+            <div
+              aria-labelledby="tab:r3:3"
+              class="reactTabsTabPanel"
+              id="panel:r3:3"
+              role="tabpanel"
+            />
+          </div>
+        </div>
+        <p>
+          Major Node.js versions enter Current release status for six months, which gives library authors time to add support for them. After six months, odd-numbered releases (9, 11, etc.) become unsupported, and even-numbered releases (10, 12, etc.) move to Active LTS status and are ready for general use. LTS release status is "long-term support", which typically guarantees that critical bugs will be fixed for a total of 30 months. Production applications should only use Active LTS or Maintenance LTS releases.
+        </p>
+        <div
+          class="downloadTableContainer"
+        >
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Release
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Codename
+                </th>
+                <th>
+                  Initial Release
+                </th>
+                <th>
+                  Active LTS Start
+                </th>
+                <th>
+                  Maintenance LTS Start
+                </th>
+                <th>
+                  End of Life
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v18.x/"
+                  >
+                    v18
+                  </a>
+                </td>
+                <td>
+                  Current
+                </td>
+                <td />
+                <td>
+                  2022-04-19
+                </td>
+                <td>
+                  2022-10-25
+                </td>
+                <td>
+                  2023-10-18
+                </td>
+                <td>
+                  2025-04-30
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v16.x/"
+                  >
+                    v16
+                  </a>
+                </td>
+                <td>
+                  Maintenance LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-gallium/"
+                  >
+                    gallium
+                  </a>
+                </td>
+                <td>
+                  2021-04-20
+                </td>
+                <td>
+                  2021-10-26
+                </td>
+                <td>
+                  2022-10-18
+                </td>
+                <td>
+                  2023-09-11
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v14.x/"
+                  >
+                    v14
+                  </a>
+                </td>
+                <td>
+                  Active LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-fermium/"
+                  >
+                    fermium
+                  </a>
+                </td>
+                <td>
+                  2020-04-21
+                </td>
+                <td>
+                  2020-10-17
+                </td>
+                <td>
+                  2021-10-19
+                </td>
+                <td>
+                  2023-04-30
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-v12.x/"
+                  >
+                    v12
+                  </a>
+                </td>
+                <td>
+                  Maintenance LTS
+                </td>
+                <td>
+                  <a
+                    href="https://nodejs.org/download/release/latest-erbium/"
+                  >
+                    erbium
+                  </a>
+                </td>
+                <td>
+                  2019-04-23
+                </td>
+                <td>
+                  2019-10-21
+                </td>
+                <td>
+                  2020-11-30
+                </td>
+                <td>
+                  2022-04-30
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="downloadAdditional"
+      >
+        <div
+          class="header"
+        >
+          <h3
+            class="title"
+          >
+            Additional Downloads
+          </h3>
+          <div
+            class="downloadToogle"
+          >
+            <div
+              class="selector"
+            >
+              <div
+                class="switch"
+              >
+                <button
+                  aria-checked="false"
+                  aria-label="LTS Versions"
+                  class=""
+                  role="switch"
+                  type="button"
+                >
+                  LTS
+                </button>
+                <button
+                  aria-checked="true"
+                  aria-label="Current Versions"
+                  class="current active"
+                  role="switch"
+                  type="button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="body"
+        >
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Windows Installer (.msi)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Windows Binary (.zip)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              macOS Installer (.pkg)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              macOS Binary (.tar.gz)
+            </div>
+          </div>
+          <div
+            class="downloadableItem"
+            role="button"
+            tabindex="0"
+          >
+            <div
+              class="header"
+            >
+              <div
+                class="headerArrow"
+              >
+                <div
+                  class="headerArrowRight"
+                />
+              </div>
+              Linux (PPC, S390x, AIX, ARMv7, ARMv8)
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="footer"
+    >
+      <ul
+        class="left"
+      >
+        <li>
+          <a
+            aria-label="Node.js Trademark Policy - PDF (Opens in new tab)"
+            class="link"
+            href="https://trademark-policy.openjsf.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Trademark Policy
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Privacy Policy - PDF (Opens in new tab)"
+            class="link"
+            href="https://privacy-policy.openjsf.org/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="https://github.com/openjs-foundation/cross-project-council/blob/main/CODE_OF_CONDUCT.md#contributor-covenant-code-of-conduct"
+          >
+            Code of Conduct
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/about/security"
+          >
+            Security
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/about"
+          >
+            About
+          </a>
+        </li>
+        <li>
+          <a
+            class="link"
+            href="/blog"
+          >
+            Blog
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="right"
+      >
+        <li>
+          © OpenJS Foundation
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Github Page (opens in new tab)"
+            href="https://github.com/nodejs/node"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-github "
+              color="var(--color-text-secondary)"
+              data-icon="github"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 496 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Mastodon (opens in new tab)"
+            href="https://mastodon.social/@nodejs@social.lfx.dev"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-mastodon "
+              color="var(--color-text-secondary)"
+              data-icon="mastodon"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Twitter (opens in new tab)"
+            href="https://twitter.com/nodejs"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-twitter "
+              color="var(--color-text-secondary)"
+              data-icon="twitter"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-label="Node.js Slack (opens in new tab)"
+            href="https://slack.openjsf.org"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-hidden="true"
+              class="svg-inline--fa fa-slack "
+              color="var(--color-text-secondary)"
+              data-icon="slack"
+              data-prefix="fab"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+`;

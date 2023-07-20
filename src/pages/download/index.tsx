@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
+import { FormattedMessage } from 'react-intl';
 import { graphql } from 'gatsby';
 import { LocalizedLink as Link } from 'gatsby-theme-i18n';
+import DefaultLayout from '../../layouts/default';
+import { DownloadComponents } from '../../components';
 import { detectOS } from '../../util/detectOS';
 import { getUpcomingReleases } from '../../util/getUpcomingReleases';
-import Layout from '../../components/Layout';
-import DownloadHeader from '../../components/DownloadHeader';
-import DownloadToggle from '../../components/DownloadToggle';
-import DownloadCards from '../../components/DownloadCards';
-import DownloadReleases from '../../components/DownloadReleases';
-import DownloadAdditional from '../../components/DownloadAdditional';
-import { NodeReleaseData, NodeReleaseLTSNPMVersion } from '../../types';
-
-import '../../styles/download.scss';
+import { NodeReleaseData } from '../../types';
+import styles from './index.module.scss';
 
 export interface DownloadNodeReleases {
   nodeReleases: {
     nodeReleasesData: NodeReleaseData[];
-    nodeReleasesLTSNPMVersion: NodeReleaseLTSNPMVersion[];
   };
 }
 
@@ -26,51 +21,55 @@ interface Props {
 }
 
 const DownloadPage = ({ data: { nodeReleases } }: Props): JSX.Element => {
-  const { nodeReleasesData, nodeReleasesLTSNPMVersion } = nodeReleases;
+  const { nodeReleasesData } = nodeReleases;
   const [typeRelease, setTypeRelease] = useState('LTS');
 
   const userOS = detectOS();
 
-  const lts = nodeReleasesLTSNPMVersion.find(
-    (release): boolean => !!release.lts
+  const filteredReleases = nodeReleasesData.filter(
+    release => release.status !== 'End-of-life'
   );
 
-  const current = nodeReleasesLTSNPMVersion.find(
-    (release): boolean => release && !release.lts
+  const lts = filteredReleases.find(release => release.isLts);
+  const current = filteredReleases.find(
+    release => release.status === 'Current'
   );
 
   const selectedType = typeRelease === 'LTS' ? lts : current;
+
   const handleTypeReleaseToggle = (
     selected: React.SetStateAction<string>
   ): void => setTypeRelease(selected);
 
-  const upcomingReleases = getUpcomingReleases(nodeReleasesData);
+  const upcomingReleases = getUpcomingReleases(filteredReleases);
 
   return (
-    <Layout title="Download Node.js" description="Come get me!">
-      <span className="home-page -download">
-        <DownloadHeader release={selectedType} />
-        <p className="release-description">
-          Download the Node.js source code, a pre-built installer for your
-          platform, or install via{' '}
-          <Link to="/download/package-manager">package manager</Link>.
+    <DefaultLayout title="Download Node.js" description="Come get me!">
+      <main className={`home-container ${styles.downloadPageContainer}`}>
+        <DownloadComponents.DownloadHeader release={selectedType} />
+        <p className={styles.releaseDescription}>
+          <FormattedMessage id="pages.download.description" />{' '}
+          <Link to="/download/package-manager">
+            <FormattedMessage id="pages.download.packageManager" />
+          </Link>
+          .
         </p>
-        <DownloadToggle
+        <DownloadComponents.DownloadToggle
           selected={typeRelease}
           handleClick={handleTypeReleaseToggle}
         />
-        <DownloadCards line={selectedType} userOS={userOS} />
-        <DownloadReleases
-          nodeReleasesData={nodeReleasesData}
+        <DownloadComponents.DownloadCards line={selectedType} userOS={userOS} />
+        <DownloadComponents.DownloadReleases
+          nodeReleasesData={filteredReleases}
           upcomingReleases={upcomingReleases}
         />
-        <DownloadAdditional
+        <DownloadComponents.DownloadAdditional
           line={selectedType}
           selectedTypeRelease={typeRelease}
           handleTypeReleaseToggle={handleTypeReleaseToggle}
         />
-      </span>
-    </Layout>
+      </main>
+    </DefaultLayout>
   );
 };
 
@@ -80,18 +79,15 @@ export const query = graphql`
   query {
     nodeReleases {
       nodeReleasesData {
-        activeLTSStart
-        codename
-        endOfLife
-        initialRelease
-        maintenanceLTSStart
-        release
-        status
-      }
-      nodeReleasesLTSNPMVersion: nodeReleasesDataDetail {
-        lts
+        fullVersion
         version
-        npm
+        codename
+        isLts
+        status
+        initialRelease
+        ltsStart
+        maintenanceStart
+        endOfLife
       }
     }
   }

@@ -1,62 +1,44 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import Article from '../components/Article';
-import Layout from '../components/Layout';
-import Navigation from '../containers/Navigation';
-import { connectGraphQlCustom } from '../components/connectGraphQlArticle';
-import { LearnPageContext, LearnPageData } from '../types';
-
-import '../styles/article-reader.scss';
-import '../styles/learn.scss';
+import Article from '../sections/Article';
+import DefaultLayout from '../layouts/default';
+import LearnNavigation from '../navigations/learn';
+import { connectGraphQlCustom } from '../connectGraphQlArticle';
+import { LearnTemplateContext, LearnTemplateData } from '../types';
 
 interface Props {
-  data: LearnPageData;
-  pageContext: LearnPageContext;
+  data: LearnTemplateData;
+  pageContext: LearnTemplateContext;
   location: Location;
 }
 
 const LearnLayout = ({
   data: {
     article: {
-      frontmatter: { title, description },
+      frontmatter: { displayTitle, description },
       body,
       tableOfContents,
       fields: { authors },
     },
   },
   pageContext: { slug, next, previous, relativePath, navigationData },
-}: Props): JSX.Element => {
-  let previousSlug = '';
-
-  if (typeof window !== 'undefined' && window.previousPath) {
-    previousSlug =
-      window.previousPath.split('/learn')[1]?.substr(1) ||
-      'introduction-to-nodejs';
-  }
-
-  return (
-    <Layout title={title} description={description}>
-      <main className="grid-container">
-        <Navigation
-          currentSlug={slug}
-          previousSlug={previousSlug}
-          label="Secondary"
-          sections={navigationData}
-          category="learn"
-        />
-        <Article
-          title={title}
-          body={body}
-          tableOfContents={tableOfContents}
-          next={next}
-          authors={authors}
-          previous={previous}
-          relativePath={relativePath}
-        />
-      </main>
-    </Layout>
-  );
-};
+}: Props): JSX.Element => (
+  <DefaultLayout title={displayTitle} description={description}>
+    <main className="grid-container">
+      <LearnNavigation sections={navigationData} currentSlug={slug} />
+      <Article
+        title={displayTitle}
+        description={description}
+        body={body}
+        tableOfContents={tableOfContents ? tableOfContents.items : []}
+        next={next}
+        authors={authors}
+        previous={previous}
+        relativePath={relativePath}
+      />
+    </main>
+  </DefaultLayout>
+);
 
 export default connectGraphQlCustom(LearnLayout);
 
@@ -72,7 +54,7 @@ export const query = graphql`
       body
       tableOfContents
       frontmatter {
-        title
+        displayTitle
         description
       }
       fields {
@@ -90,7 +72,7 @@ export const query = graphql`
       body
       tableOfContents
       frontmatter {
-        title
+        displayTitle
         description
       }
       fields {

@@ -9,25 +9,28 @@ permissions:
   pull-requests: write
 
 jobs:
-  build:
+  generate-preview:
+    environment:
+      name: firebase-staging
+      url: 'https://staging.nodejs.dev/${{ github.event.pull_request.number }}/'
     runs-on: ubuntu-latest
     if: github.event.label.name == 'create-preview'
     steps:
-
-      - uses: actions/checkout@v3
+      - name: Git Checkout
+        uses: actions/checkout@v3.3.0
         with:
           persist-credentials: false
           ref: ${{ github.event.pull_request.head.sha }}
 
-      - name: Setup GCloud
-        uses: google-github-actions/setup-gcloud@v0
+      - name: Auth G Cloud
+        uses: 'google-github-actions/auth@v1'
         with:
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-          export_default_credentials: true
+          credentials_json: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_NODEJS_INFRASTRUCTURE }}'
 
-      - name: Remove create-preview label
+      - name: Setup G Cloud
+        uses: google-github-actions/setup-gcloud@v1
+
+      - name: Remove the PR Label
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -39,15 +42,25 @@ jobs:
               name: ['create-preview']
             })
 
-      - name: Install Dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: Install NPM packages
         run: npm ci
 
-      - name: Run Gatsby Build
+      - uses: jongwooo/gatsby-cache@v1.4.1
+        with:
+          key: generate-preview-gatsby-ubuntu-latest
+
+      - name: Build Gatsby
         run: npm run build-ci
         env:
           PATH_PREFIX: ${{ github.event.pull_request.number }}/
 
-      - name: Upload to GCS
+      - name: Upload to G Cloud Storage
         run: gsutil -m rsync -R public gs://staging.nodejs.dev/${{ github.event.pull_request.number }}/
 
       - name: Comment on PR

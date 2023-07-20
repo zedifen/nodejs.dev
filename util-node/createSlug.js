@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 function createSlug(title) {
   let slug = title.toLowerCase().trim();
 
   const sets = [
     { to: 'nodejs', from: /node.js/ }, // Replace node.js
     { to: '-and-', from: /&/ }, // Replace &
-    { to: '-', from: /[/_,:;\\ .]/g }, // Replace /_,:;\. and whitespace
+    { to: '-', from: /[/_,:;\\ ]/g }, // Replace /_,:;\. and whitespace
   ];
 
   sets.forEach(set => {

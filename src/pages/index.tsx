@@ -1,22 +1,19 @@
 import React, { ReactElement } from 'react';
+import { injectIntl, WrappedComponentProps } from 'react-intl';
 import { graphql } from 'gatsby';
 import { IoLogoNodejs, IoMdGitPullRequest, IoMdRocket } from 'react-icons/io';
 
-import Layout from '../components/Layout';
-import Hero from '../components/Hero';
+import DefaultLayout from '../layouts/default';
+import { CommonComponents, DownloadComponents } from '../components';
 
-import '../util/konami';
-import '../styles/index.scss';
-
-import { connectGraphQlCustom } from '../components/connectGraphQlArticle';
-import { HomepageData, NodeReleaseLTSVersion, BannersIndex } from '../types';
+import { connectGraphQlCustom } from '../connectGraphQlArticle';
+import { HomepageData, BannersIndex, NodeReleaseData } from '../types';
 
 import { ReactComponent as LeafsIllustrationFront } from '../images/illustrations/leafs-front.svg';
 import { ReactComponent as LeafsIllustrationMiddle } from '../images/illustrations/leafs-middle.svg';
 import { ReactComponent as LeafsIllustrationBack } from '../images/illustrations/leafs-back.svg';
 import { ReactComponent as DotsIllustration } from '../images/illustrations/dots.svg';
-import InstallTabs from '../components/InstallTabs';
-import Banner from '../components/Banner';
+import styles from './index.module.scss';
 
 interface NodeFeatureProps {
   icon?: ReactElement;
@@ -25,25 +22,26 @@ interface NodeFeatureProps {
 }
 
 const styled = (icon: ReactElement): ReactElement =>
-  React.cloneElement(icon, { alt: 'Node Feature', className: 'feature-icon' });
+  React.cloneElement(icon, {
+    alt: 'Node Feature',
+    className: styles.featureIcon,
+  });
 
 const features = [
   {
     icon: styled(<IoLogoNodejs />),
-    heading: 'JavaScript',
-    description:
-      'Node.js provides support for the JavaScript programming language',
+    heading: 'pages.index.features.javascript.title',
+    description: 'pages.index.features.javascript.description',
   },
   {
     icon: styled(<IoMdGitPullRequest />),
-    heading: 'Open Source',
-    description:
-      'Node.js is open source and actively maintained by contributors all over the world',
+    heading: 'pages.index.features.openSource.title',
+    description: 'pages.index.features.openSource.description',
   },
   {
     icon: styled(<IoMdRocket />),
-    heading: 'Everywhere',
-    description: 'Node.js has been adapted to work in a wide variety of places',
+    heading: 'pages.index.features.everywhere.title',
+    description: 'pages.index.features.everywhere.description',
   },
 ];
 
@@ -52,9 +50,9 @@ const NodeFeature = ({
   heading,
   description,
 }: NodeFeatureProps): JSX.Element => (
-  <div className="node-features__feature">
+  <div className={styles.nodeFeaturesFeature}>
     {icon}
-    <h4>{heading}</h4>
+    <h2 className="t-subheading2">{heading}</h2>
     <p>{description}</p>
   </div>
 );
@@ -64,48 +62,53 @@ const Index = ({
     article: {
       frontmatter: { displayTitle, subTitle, description },
     },
-    nodeReleases: { nodeReleasesLTSVersion },
+    nodeReleases: { nodeReleasesData },
     banners: { bannersIndex },
   },
-}: HomepageProps): JSX.Element => (
-  <Layout title={displayTitle} description={description} showRandomContributor>
-    <main className="home-page">
-      <Banner bannersIndex={bannersIndex} />
-      <Hero
+  intl,
+}: HomepageProps & WrappedComponentProps): JSX.Element => (
+  <DefaultLayout
+    title={displayTitle}
+    description={description}
+    showRandomContributor
+  >
+    <main className="home-container">
+      <CommonComponents.Banner bannersIndex={bannersIndex} />
+      <CommonComponents.Hero
         title={displayTitle}
         subTitle={subTitle}
-        nodeReleasesLTSVersion={nodeReleasesLTSVersion}
+        nodeReleaseData={nodeReleasesData}
       />
 
-      <section className="node-demo-container">
-        <div className="node-demo">
-          <InstallTabs />
+      <section className={styles.nodeDemoContainer}>
+        <div className={styles.nodeDemo}>
+          <DownloadComponents.InstallTabs />
         </div>
-        <LeafsIllustrationFront className="leafs-front animations" />
-        <LeafsIllustrationMiddle className="leafs-middle animations" />
-        <LeafsIllustrationBack className="leafs-back animations" />
-        <DotsIllustration className="dots" />
+        <LeafsIllustrationFront className={`${styles.leafsFront} animations`} />
+        <LeafsIllustrationMiddle className={`${styles.leafsMid} animations`} />
+        <LeafsIllustrationBack className={`${styles.leafsBack} animations`} />
+        <DotsIllustration className={styles.dots} />
       </section>
 
-      <section className="node-features">
+      <section className={styles.nodeFeatures}>
         {features.map(feature => (
           <NodeFeature
             key={feature.heading}
             icon={feature.icon}
-            heading={feature.heading}
-            description={feature.description}
+            heading={intl.formatMessage({ id: feature.heading })}
+            description={intl.formatMessage({ id: feature.description })}
           />
         ))}
       </section>
     </main>
-  </Layout>
+  </DefaultLayout>
 );
 
-export default connectGraphQlCustom(Index);
+export default connectGraphQlCustom(injectIntl(Index));
 
 export interface HomeNodeReleases {
   nodeReleases: {
-    nodeReleasesLTSVersion: NodeReleaseLTSVersion[];
+    nodeReleasesData: NodeReleaseData[];
   };
 }
 
@@ -156,9 +159,16 @@ export const query = graphql`
       }
     }
     nodeReleases {
-      nodeReleasesLTSVersion: nodeReleasesDataDetail {
-        lts
+      nodeReleasesData {
+        fullVersion
         version
+        codename
+        isLts
+        status
+        initialRelease
+        ltsStart
+        maintenanceStart
+        endOfLife
       }
     }
     banners {
